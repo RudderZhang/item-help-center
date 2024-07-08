@@ -1,11 +1,107 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+---
+title: Help Center – item.com
+---
 
-## What is Nextra?
+import cn from 'clsx'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+export function HelpCard({ title, description, icon }) {
+  return (
+    <Card className="flex flex-col items-center justify-center p-4 space-y-4 border border-gray-200 rounded-md shadow-sm hover:shadow-md">
+      <CardHeader>
+      </CardHeader>
+      <CardContent>
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="text-sm text-gray-600">{description}</p>
+      </CardContent>
+      <CardFooter>
+        <a href="#" className="text-blue-500 hover:underline">Learn More</a>
+      </CardFooter>
+    </Card>
+  )
+}
 
-## Documentation
+export const HelpCenter = () => {
+  const helpCardsData = [
+    { title: 'Getting started', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'StartIcon' },
+    { title: 'System configuration', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'SettingsIcon' },
+    { title: 'Video tutorials', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'VideoIcon' },
+    { title: 'API', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'ApiIcon' },
+  ]
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+  const itemAppsData = [
+    { title: 'Transload', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'PackageIcon' },
+    { title: 'WMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'BoxIcon' },
+    { title: 'Ship', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'ShipIcon' },
+    { title: 'Data Integration', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'IntegrationIcon' },
+    { title: 'Bookkeeping', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'BookIcon' },
+    { title: 'Pass', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'PassIcon' },
+    { title: 'OMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'OrderIcon' },
+    { title: 'RMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'RmsIcon' },
+    { title: 'YMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'YardIcon' },
+  ]
+
+  return (
+    <section id="help-center" className="container py-14">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold mb-8">How can we help?</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {helpCardsData.map((card, index) => (
+            <HelpCard key={index} title={card.title} description={card.description} icon={card.icon} />
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-12 text-center">
+        <h2 className="text-xl font-bold mb-4">Item Apps</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {itemAppsData.map((card, index) => (
+            <HelpCard key={index} title={card.title} description={card.description} icon={card.icon} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export const Hero = () => {
+  return (
+    <section id="hero">
+      <div className="relative overflow-hidden py-14">
+        <div className="container z-10 flex flex-col">
+          <div className="grid grid-cols-1">
+            <div className="flex flex-col items-center gap-6 text-center">
+              <h1>item.com Help Center</h1>
+              <div className="flex space-x-4 z-10">
+                <Link href="/pricing">
+                  <Button variant="default">See plans and pricing</Button>
+                </Link>
+                <Link href="/signup">
+                  <Button variant="outline">Sign up for free</Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<div className="home-content">
+  <div className="content-container">
+    <Hero />
+    <HelpCenter />
+  </div>
+</div>
