@@ -15,18 +15,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { HoverEffect } from "@/components/ui/card-hover-effect"
 
 export function HelpCard({ title, description, icon }) {
   return (
-    <Card className="flex flex-col items-center justify-center p-4 space-y-4 border border-gray-200 rounded-md shadow-sm hover:shadow-md">
+    <Card className="flex flex-col items-center justify-center p-4 space-y-4 border border-border rounded-md shadow-sm hover:shadow-md">
       <CardHeader>
       </CardHeader>
       <CardContent>
         <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-gray-600">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </CardContent>
       <CardFooter>
-        <a href="#" className="text-blue-500 hover:underline">Learn More</a>
+        <a href="#" className="text-primary hover:underline">Learn More</a>
       </CardFooter>
     </Card>
   )
@@ -34,22 +35,22 @@ export function HelpCard({ title, description, icon }) {
 
 export const HelpCenter = () => {
   const helpCardsData = [
-    { title: 'Getting started', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'StartIcon' },
-    { title: 'System configuration', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'SettingsIcon' },
-    { title: 'Video tutorials', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'VideoIcon' },
-    { title: 'API', description: 'Explore our comprehensive guide on how to begin your journey.', icon: 'ApiIcon' },
+    { title: 'Getting started', description: 'Explore our comprehensive guide on how to begin your journey.' },
+    { title: 'System configuration', description: 'Explore our comprehensive guide on how to begin your journey.' },
+    { title: 'Video tutorials', description: 'Explore our comprehensive guide on how to begin your journey.' },
+    { title: 'API', description: 'Explore our comprehensive guide on how to begin your journey.' },
   ]
 
   const itemAppsData = [
-    { title: 'Transload', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'PackageIcon' },
-    { title: 'WMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'BoxIcon' },
-    { title: 'Ship', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'ShipIcon' },
-    { title: 'Data Integration', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'IntegrationIcon' },
-    { title: 'Bookkeeping', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'BookIcon' },
-    { title: 'Pass', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'PassIcon' },
-    { title: 'OMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'OrderIcon' },
-    { title: 'RMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'RmsIcon' },
-    { title: 'YMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', icon: 'YardIcon' },
+    { title: 'Transload', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'PackageIcon' },
+    { title: 'WMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'BoxIcon' },
+    { title: 'Ship', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'ShipIcon' },
+    { title: 'Data Integration', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'IntegrationIcon' },
+    { title: 'Bookkeeping', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'BookIcon' },
+    { title: 'Pass', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'PassIcon' },
+    { title: 'OMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'OrderIcon' },
+    { title: 'RMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'RmsIcon' },
+    { title: 'YMS', description: 'Explore our comprehensive guide on how to begin your journey with our advanced suite of software.', link: 'YardIcon' },
   ]
 
   return (
@@ -65,11 +66,7 @@ export const HelpCenter = () => {
 
       <div className="mt-12 text-center">
         <h2 className="text-xl font-bold mb-4">Item Apps</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {itemAppsData.map((card, index) => (
-            <HelpCard key={index} title={card.title} description={card.description} icon={card.icon} />
-          ))}
-        </div>
+        <HoverEffect items={itemAppsData} />
       </div>
     </section>
   )
