@@ -16,6 +16,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { HoverEffect } from "@/components/ui/card-hover-effect"
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation"
 
 export function HelpCard({ title, description, icon }) {
   return (
@@ -75,11 +76,9 @@ export const HelpCenter = () => {
 export const Hero = () => {
   return (
     <section id="hero">
-      <div className="relative overflow-hidden py-14">
-        <div className="container z-10 flex flex-col">
-          <div className="grid grid-cols-1">
-            <div className="flex flex-col items-center gap-6 text-center">
-              <h1>item.com Help Center</h1>
+      <BackgroundGradientAnimation>
+          <div className="container z-10 flex flex-col items-center gap-6 text-center h-full justify-center absolute inset-0 px-4 pointer-events-none ">
+              <h1 className="text-7xl font-extrabold text-primary-foreground">item Help Center</h1>
               <div className="flex space-x-4 z-10">
                 <Link href="/pricing">
                   <Button variant="default">See plans and pricing</Button>
@@ -89,9 +88,7 @@ export const Hero = () => {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+      </BackgroundGradientAnimation>
     </section>
   )
 }
